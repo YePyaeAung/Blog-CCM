@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -10,7 +11,8 @@ class BlogController extends Controller
     public function index()
     {
         return view('blogs.index', [
-            'blogs' => Blog::latest()->get() // eager load // lazy loading
+            'blogs' => Blog::latest()->get(), // eager load // lazy loading
+            'categories' => Category::all(),
         ]);
     }
     public function show(Blog $blog)
