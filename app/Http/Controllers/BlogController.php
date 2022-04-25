@@ -10,7 +10,7 @@ class BlogController extends Controller
     public function index()
     {
         return view('blogs.index', [
-            'blogs' => Blog::all()
+            'blogs' => Blog::with('category')->get() // eager load // lazy loading
         ]);
     }
     public function show(Blog $blog)
