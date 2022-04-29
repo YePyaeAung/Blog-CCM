@@ -12,7 +12,7 @@ class BlogController extends Controller
     {
         
         return view('blogs.index', [
-            'blogs' => Blog::latest()->filter(request(['search', 'category', 'author']))->get(),
+            'blogs' => Blog::latest()->filter(request(['search', 'category', 'username']))->get(),
         ]);
     }
     public function show(Blog $blog)
