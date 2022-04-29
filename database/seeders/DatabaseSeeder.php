@@ -22,11 +22,12 @@ class DatabaseSeeder extends Seeder
         Blog::truncate();
 
         // User::factory(1)->create();
-
+        $mgmg = User::factory()->create(['name'=>"Mg Mg", 'username'=>"mgmg"]);
+        $aungaung = User::factory()->create(['name'=>"Aung Aung", 'username'=>"aungaung"]);
         $frontend = Category::factory()->create([ 'name'=>"Frontend", 'slug'=>"frontend" ]);
         $backend = Category::factory()->create([ 'name'=>"Backend", 'slug'=>"backend" ]);
 
-        Blog::factory(2)->create(['category_id'=>$frontend->id]);
-        Blog::factory(2)->create(['category_id'=>$backend->id]);
+        Blog::factory(2)->create(['category_id'=>$frontend->id, 'user_id'=>$mgmg->id]);
+        Blog::factory(2)->create(['category_id'=>$backend->id, 'user_id'=>$aungaung->id]);
     }
 }

@@ -8,11 +8,5 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function showBlog(User $user)
-    {
-        return view('blogs.index', [
-            'blogs' => $user->blogs,
-            'categories' => Category::all()
-        ]);
-    }
+    //
 }

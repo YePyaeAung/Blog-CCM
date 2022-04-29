@@ -7,12 +7,5 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function showCategory(Category $category)
-    {
-        return view('blogs.index', [
-            'blogs' => $category->blogs,
-            'categories' => Category::all(),
-            'currentCategory' => $category
-        ]);
-    }
+    //
 }

@@ -8,7 +8,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 @foreach ($categories as $category)
-                    <li><a class="dropdown-item" href="/categories/{{$category->slug}}">{{$category->name}}</a></li>
+                    <li><a class="dropdown-item" href="/?category={{$category->slug}}">{{$category->name}}</a></li>
                 @endforeach
             </ul>
         </div>
@@ -20,6 +20,8 @@
     <form action="" class="my-3">
         <div class="input-group mb-3">
             <input
+            name="search"
+            value="{{request('search')}}"
             type="text"
             autocomplete="false"
             class="form-control"
@@ -35,10 +37,16 @@
     </div>
 </form>
 <div class="row">
-    @foreach ($blogs as $blog)
+    @forelse ($blogs as $blog)
     <div class="col-md-4 mb-4">
         <x-blog-card :blog="$blog"/>
     </div>
-    @endforeach
+    @empty
+    <div class="col-md-12 mb-4">
+        <div class="alert alert-warning text-center" role="alert">
+                No Blogs Found!
+        </div>
+    </div>
+    @endforelse
 </div>
 </section>
