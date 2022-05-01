@@ -53,5 +53,6 @@
         </div>
     </div>
     @endforelse
+    {{$blogs->links()}}
 </div>
 </section>

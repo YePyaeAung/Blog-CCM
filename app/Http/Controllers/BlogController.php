@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,7 +11,7 @@ class BlogController extends Controller
     {
         
         return view('blogs.index', [
-            'blogs' => Blog::latest()->filter(request(['search', 'category', 'username']))->get(),
+            'blogs' => Blog::latest()->filter(request(['search', 'category', 'username']))->paginate(6)->withQueryString(),
         ]);
     }
     public function show(Blog $blog)
