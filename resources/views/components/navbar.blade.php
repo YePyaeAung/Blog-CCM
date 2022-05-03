@@ -4,8 +4,8 @@
         <div class="d-flex">
             <a href="/#home" class="nav-link">Home</a>
             <a href="/#blogs" class="nav-link">Blogs</a>
-            <a href="#subscribe" class="nav-link">Subscribe</a>
             @guest
+                <a href="/login" class="nav-link">Login</a>
                 <a href="/register" class="nav-link">Register</a>
             @endguest
             @auth
