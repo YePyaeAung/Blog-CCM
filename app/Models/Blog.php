@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    // protected $guarded = [];
     protected $with = ['category', 'author'];
 
     public function category()
@@ -36,5 +36,9 @@ class Blog extends Model
                 $query->where('username', $username);
             });
         });
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

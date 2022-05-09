@@ -9,6 +9,7 @@
                 <a href="/register" class="nav-link">Register</a>
             @endguest
             @auth
+            <img src="{{auth()->user()->avatar}}" width="50" height="50" class="rounded-circle">
                 <form action="/logout" method="POST">
                     @csrf
                     <button type="submit" href="/logout" class="nav-link btn btn-link">Logout</button>
