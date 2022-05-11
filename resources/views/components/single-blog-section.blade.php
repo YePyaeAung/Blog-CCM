@@ -15,6 +15,16 @@
             <div class="tags my-3">
                 <a href="/?category={{$blog->category->slug}}"><span class="badge bg-primary">{{$blog->category->name}}</span></a>
             </div>
+            <form action="/blogs/{{$blog->slug}}/subscription" method="POST">
+                @csrf
+                @auth
+                @if (auth()->user()->isSubscribed($blog))
+                    <button type="submit" class="btn btn-secondary mb-3">Unsubscribe</button>
+                @else
+                    <button type="submit" class="btn btn-danger mb-3">Subscribe</button>
+                @endif
+                @endauth
+            </form>
             <p class="lh-md">
                 {{$blog->body}}
             </p>

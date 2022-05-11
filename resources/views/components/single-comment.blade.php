@@ -2,7 +2,7 @@
 <x-card-wrapper>
     <div class="d-flex">
         <div>
-            <img src="{{auth()->user()->avatar}}" width="50" height="50" alt="" class="rounded-circle">
+            <img src="{{$comment->author->avatar}}" width="50" height="50" alt="" class="rounded-circle">
         </div>
         <div class="ms-3">
             <h6>{{$comment->author->name}}</h6>

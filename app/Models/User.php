@@ -78,5 +78,13 @@ class User extends Authenticatable
             set: fn ($value) => bcrypt($value),
         );
     }
+    public function subscribedBlogs()
+    {
+        return $this->belongsToMany(Blog::class);
+    }
+    public function isSubscribed($blog)
+    {
+        return (auth()->user()->subscribedBlogs && auth()->user()->subscribedBlogs->contains('id', $blog->id));
+    }
 }
             
