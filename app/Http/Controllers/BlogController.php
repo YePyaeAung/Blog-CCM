@@ -43,14 +43,15 @@ class BlogController extends Controller
     public function store()
     {
         $blogCreatedForm =request()->validate([
-                'title' => ['required'],
-                'slug' => ['required', Rule::unique('blogs', 'slug')],
-                'intro' => ['required'],
-                'body' => ['required'],
-                'category_id' => ['required'],
-            ]);
-            $blogCreatedForm['user_id'] = auth()->id();
-            Blog::create($blogCreatedForm);
+            'title' => ['required'],
+            'slug' => ['required', Rule::unique('blogs', 'slug')],
+            'intro' => ['required'],
+            'body' => ['required'],
+            'category_id' => ['required', Rule::exists('categories', 'id')],
+        ]);
+        $blogCreatedForm['user_id'] = auth()->id();
+        $blogCreatedForm['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        Blog::create($blogCreatedForm);
         return redirect('/')->with('success', "Blog Created Successfully!");
     }
 }
