@@ -18,7 +18,9 @@
                     />
                 </x-form.form-wrapper>
             <x-form.select name="category" :categories="$categories" :blog="$blog"/>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="mb-3 d-flex justify-content-end">    
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
         </form>
     </x-card-wrapper>
 </x-admin-layout>

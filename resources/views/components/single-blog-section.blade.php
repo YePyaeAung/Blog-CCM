@@ -28,7 +28,7 @@
                 @endauth
             </form>
             <p class="lh-md">
-                {{$blog->body}}
+                {!!$blog->body!!}
             </p>
         </div>
     </div>
