@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
         // Blog::truncate();
 
         // User::factory(1)->create();
+
+        $this->call(AdminSeeder::class);
+
         $mgmg = User::factory()->create(['name'=>"Mg Mg", 'username'=>"mgmg"]);
         $aungaung = User::factory()->create(['name'=>"Aung Aung", 'username'=>"aungaung"]);
         $frontend = Category::factory()->create([ 'name'=>"Frontend", 'slug'=>"frontend" ]);
