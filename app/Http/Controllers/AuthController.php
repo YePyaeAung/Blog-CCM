@@ -44,7 +44,11 @@ class AuthController extends Controller
         ]);
         
         if(auth()->attempt($loginData)) {
-            return redirect('/')->with('success', "Login Successfully! Welcome Back.");
+            if(auth()->user()->is_admin) {
+                return redirect('/admin/blogs')->with('success', "Admin Dashboard Login Successfully!");
+            } else {
+                return redirect('/')->with('success', "Login Successfully! Welcome Back.");
+            }
         } else {
             // return back()->withErrors([
             //     'email' => "User Credentials Wrong.",

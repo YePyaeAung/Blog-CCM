@@ -1,5 +1,4 @@
-<x-layout>
-    <div class="col-md-5 mx-auto">
+<x-admin-layout>
         <x-card-wrapper>
             <div class="card-header bg-primary border border-0 mb-5"><h3 class="text-center text-white">Blog Create Form</h3></div>
             <form method="POST" action="/admin/blogs/store" enctype="multipart/form-data">
@@ -13,5 +12,4 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </x-card-wrapper>
-    </div>
-</x-layout>
+</x-admin-layout>
